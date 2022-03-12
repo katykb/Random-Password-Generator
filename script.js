@@ -6,25 +6,55 @@ var numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,]
 var symbols =['!', '@', '#', '$', '%', '^', '&', '*', '?', '+',]
 
 var userApprovedCharacters = [];
-
+var allUserChoices = [];
 
 document.getElementById("generate").addEventListener("click", generatePassword);
 function generatePassword(){
+
+
 alert ("Please answer some questions that will assit me in generating a password for you.");
 
+var passwordLength =prompt ( "How many characters would you like your password to include? Please enter a number between 10 and 100.");
 
-var passwordLength =prompt ( "How many characters would you like your password to include? Please enter a number between 10 and 100.");{
+    if (passwordLength >10 && passwordLength<120){
+    alert ( "You have chosen"  + " " + (passwordLength) + " " + " characters for your password length.");
     console.log(passwordLength + " " + "characters in the password");
-}
+
+    }else (passwordLength <10 && passwordLength> 120);{
+        alert ("Please try again. Enter a password length between 10 and 120 characters.");
+            generatePassword();
+    }
+        
+   
 
 var passwordContainsLowercase = confirm("Would you like your password to include lowercase letters?");
-
-var passwordContainsUppercase = confirm("What about UPPERCASE letters in your password?"); 
-   
-var passwordNumbers = confirm("Will numbers be in your password?"); 
+    if (passwordContainsLowercase===true ){
+        alert ("You will have lowercase letters in your password");
+        } 
+    
+var passwordContainsUppercase = confirm("What about UPPERCASE letters in your password?");
+if (passwordContainsUppercase===true){
+    alert ("You will have UPPERCASE letters in your password.");
+} 
+ 
+var passwordNumbers = confirm("Will numbers be in your password?");
+    if (passwordNumbers === true){
+    alert ("You will have numbers in your password.");
+}
 
 var passwordSymbols = confirm("Would you like to have symbols in your password?");
+    if (passwordSymbols === true){
+    alert ("You will have symbols in your password.");
+}
 
+    if (passwordContainsLowercase===false &&
+        passwordContainsUppercase===false &&
+        passwordNumbers===false &&
+        passwordSymbols===false){
+    alert ("Whoops. You answered no to all my questions. Please try again.");
+         generatePassword();
+        }
+    
 
 if(passwordContainsLowercase === true) {
     for(var i=0; i<lowercase.length;i++) {
@@ -56,10 +86,6 @@ if(passwordSymbols=== true) {
 
 console.log(userApprovedCharacters);
 
-//if (passwordLength  > 10 && passwordLength<120) {
- //alert("You have selected a [userCharacterChoice] character password.");
-//console.log(passwordLength);}
-
 var password = " "
 
 for (i=0; i<passwordLength; i++){
@@ -67,7 +93,14 @@ for (i=0; i<passwordLength; i++){
  var randomCharacter = userApprovedCharacters [RandomIndex];
  password = password + randomCharacter;
 
- console.log(password); } }
+ console.log(password);} 
+}
+
+
+//document.getElementById("#password").addEventListener( "write", writePassword);
+//function writePassword(){
+
+//}
 
 //if (userCharacterChoice <10 ) {
    // console.log("Invalid password character length selection");
@@ -88,18 +121,7 @@ for (i=0; i<passwordLength; i++){
             //password += randomCharacter; 
             
        //}
-    
-
-
-//if(passwordNumbers==="no",
-  //  passwordUppercase==="no",
-    //passwordLowercase==="no",
-   // passwordSymbols==="no"){
-//console.log("Invalid");
-//alert("Well, that's not cool. It looks like you have answered no to all my questions. 
-  //      You have to answer yes to at least one question so I can genereate a password for you.");
-    
-
+   
 
 //createRange(10, 100)
 //function createRange(min, max){
@@ -127,16 +149,15 @@ for (i=0; i<passwordLength; i++){
 //var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-//function writePassword() {
-//var password = generatePassword();
+//function writePassword() 
+//var password = generatePassword()
 //var passwordText = document.querySelector("#password");
+//document.getElementById("#password").addEventListener( writePassword());
 
    // passwordText.value = password;
 //document.getElementById("generate").addEventListener("click", generatePassword(){
    // alert("Let's make a password!");
 
-//})
 //generatePassword();
    // Add event listener to generate button
    //generateBtn.addEventListener("click", writePassword);
-//}
