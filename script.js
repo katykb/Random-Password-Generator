@@ -17,8 +17,6 @@ function writePassword() {
   passwordText.textContent = password;
 }
 
-alert("Hello! Please click the Generate Password button to get your password.");
-
 document.getElementById("generate").addEventListener("click", writePassword);
 function generatePassword() {
   var userApprovedCharacters = [];
