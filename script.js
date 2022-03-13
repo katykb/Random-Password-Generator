@@ -22,9 +22,11 @@ document.getElementById("generate").addEventListener("click", writePassword);
 function generatePassword() {
   var userApprovedCharacters = [];
 
+  alert("Hello! Please click the Generate Password button to get your password.");
+
   alert("Please answer some questions that will assit me in generating a password for you.");
 
-  var passwordLength = prompt("How many characters would you like your password to include? Please enter a number between 10 and 100.");
+  var passwordLength = prompt("How many characters would you like your password to include? Please enter a number between 10 and 120.");
 
   if (passwordLength > 10 &&  passwordLength < 120) {
     alert("You have chosen" + " " + (passwordLength) + " " + " characters for your password length. Let's move on!");
