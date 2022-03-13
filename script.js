@@ -18,11 +18,11 @@ function writePassword() {
 }
 
 document.getElementById("generate").addEventListener("click", writePassword);
+alert("Hello! Please click the Generate Password button to get your password.");
 
 function generatePassword() {
   var userApprovedCharacters = [];
-
-  alert("Hello! Please click the Generate Password button to get your password.");
+ 
 
   alert("Please answer some questions that will assit me in generating a password for you.");
 
